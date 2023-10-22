@@ -5,30 +5,29 @@ import { Example } from './scenes/Example';
 import { isPlatform } from '@ionic/react';
 
 if (!isPlatform('capacitor')) {
-  const environment = {
-    production: false,
-    firebase: {
-      apiKey: "AIzaSyBGRQhxXTFc-z_UB81xGziP6YUajLhqT3E",
-      authDomain: "my-playground-project-391323.firebaseapp.com",
-      projectId: "my-playground-project-391323",
-      storageBucket: "my-playground-project-391323.appspot.com",
-      messagingSenderId: "71830756335",
-      appId: "1:71830756335:web:150cf0a1413982178ff41a",
-      measurementId: "G-ZHTLRTHHS2"
-    },
+  const firebase = {
+    apiKey: "AIzaSyBGRQhxXTFc-z_UB81xGziP6YUajLhqT3E",
+    authDomain: "my-playground-project-391323.firebaseapp.com",
+    projectId: "my-playground-project-391323",
+    storageBucket: "my-playground-project-391323.appspot.com",
+    messagingSenderId: "71830756335",
+    appId: "1:71830756335:web:150cf0a1413982178ff41a",
+    measurementId: "G-ZHTLRTHHS2"
   };
 
-  initializeApp(environment.firebase);
+  initializeApp(firebase);
 }
 
 FirebaseAuthentication.removeAllListeners().then(() => {
   FirebaseAuthentication.addListener('authStateChange', (change) => {
-    console.log(change);
+    if (!change.user) {
+      FirebaseAuthentication.signInWithGoogle()
+        .then(result => console.log(result.user?.uid))
+        .catch(err => console.error(err));
+    } else {
+      console.log(change.user.displayName);
+    }
   });
-
-  // FirebaseAuthentication.signInAnonymously()
-  //   .then(result => console.log(result.user?.uid))
-  //   .catch(err => console.error(err));
 });
 
 const config = {
