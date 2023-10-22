@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>71830756335-p3rfo9gimb6p5059ga5807em3dgeg71a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.71830756335-p3rfo9gimb6p5059ga5807em3dgeg71a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDqcq3uwwq6aHBVu02n49CBItW0lUxydls</string>
+	<key>GCM_SENDER_ID</key>
+	<string>71830756335</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.ionic.starter</string>
+	<key>PROJECT_ID</key>
+	<string>my-playground-project-391323</string>
+	<key>STORAGE_BUCKET</key>
+	<string>my-playground-project-391323.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:71830756335:ios:bf5579b037c99dac8ff41a</string>
+</dict>
+</plist>
