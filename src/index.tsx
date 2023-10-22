@@ -1,24 +1,54 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+import Phaser from 'phaser';
+import { initializeApp } from 'firebase/app';
+import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
+import { Example } from './scenes/Example';
+import { isPlatform } from '@ionic/react';
 
-const container = document.getElementById('root');
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const root = createRoot(container!);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+if (!isPlatform('capacitor')) {
+  const environment = {
+    production: false,
+    firebase: {
+      apiKey: "AIzaSyBGRQhxXTFc-z_UB81xGziP6YUajLhqT3E",
+      authDomain: "my-playground-project-391323.firebaseapp.com",
+      projectId: "my-playground-project-391323",
+      storageBucket: "my-playground-project-391323.appspot.com",
+      messagingSenderId: "71830756335",
+      appId: "1:71830756335:web:150cf0a1413982178ff41a",
+      measurementId: "G-ZHTLRTHHS2"
+    },
+  };
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.unregister();
+  initializeApp(environment.firebase);
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+FirebaseAuthentication.removeAllListeners().then(() => {
+  FirebaseAuthentication.addListener('authStateChange', (change) => {
+    console.log(change);
+  });
+
+  // FirebaseAuthentication.signInAnonymously()
+  //   .then(result => console.log(result.user?.uid))
+  //   .catch(err => console.error(err));
+});
+
+const config = {
+  type: Phaser.CANVAS,
+  width: 800,
+  height: 600,
+  orientation: Phaser.Scale.LANDSCAPE,
+  autoRound: true,
+  autoFocus: true,
+  scale: {
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    mode: Phaser.Scale.RESIZE,
+  },
+  scene: Example,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 200 }
+    }
+  }
+};
+
+const game = new Phaser.Game(config);

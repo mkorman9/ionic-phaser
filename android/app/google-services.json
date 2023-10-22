@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71830756335",
+    "project_id": "my-playground-project-391323",
+    "storage_bucket": "my-playground-project-391323.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71830756335:android:c7a54bf384511e268ff41a",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71830756335-4eio30fjk29iccpbm85gqcghenhodti6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRolE3qLY0LgXdMlIRuXXPUyF8gxzC4Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71830756335-4eio30fjk29iccpbm85gqcghenhodti6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
