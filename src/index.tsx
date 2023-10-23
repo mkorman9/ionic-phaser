@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { initializeApp } from 'firebase/app';
-import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
+//import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
 import { Example } from './scenes/Example';
 import { isPlatform } from '@ionic/react';
 
@@ -33,11 +33,11 @@ if (!isPlatform('capacitor')) {
 const config = {
   type: Phaser.CANVAS,
   orientation: Phaser.Scale.PORTRAIT,
-  width: 1080,
-  height: 1920,
   autoRound: true,
   autoFocus: true,
   scale: {
+    width: window.innerWidth * window.devicePixelRatio,
+    height: window.innerHeight * window.devicePixelRatio,
     parent: 'root',
     autoCenter: Phaser.Scale.CENTER_BOTH,
     mode: Phaser.Scale.RESIZE

@@ -8,13 +8,21 @@ export class Example extends Phaser.Scene {
   }
 
   create() {
-    this.add.tileSprite(0, 0, 1080, 1920, 'starfield');
+    this.add.tileSprite(
+      this.scale.width / 2,
+      this.scale.height / 2,
+      this.scale.width,
+      this.scale.height,
+      'starfield'
+    );
 
     const particles = this.add.particles(0, 0, 'red', {
       speed: 100,
       scale: { start: 1, end: 0 },
       blendMode: 'ADD'
     });
+
+    this.add.image(this.scale.width / 2, this.scale.height / 2, 'logo');
 
     const logo = this.physics.add.image(100, 100, 'logo');
     logo.setScale(0.5, 0.5);
