@@ -18,28 +18,29 @@ if (!isPlatform('capacitor')) {
   initializeApp(firebase);
 }
 
-FirebaseAuthentication.removeAllListeners().then(() => {
-  FirebaseAuthentication.addListener('authStateChange', (change) => {
-    if (!change.user) {
-      FirebaseAuthentication.signInWithGoogle()
-        .then(result => console.log(result.user?.uid))
-        .catch(err => console.error(err));
-    } else {
-      console.log(change.user.displayName);
-    }
-  });
-});
+// FirebaseAuthentication.removeAllListeners().then(() => {
+//   FirebaseAuthentication.addListener('authStateChange', (change) => {
+//     if (!change.user) {
+//       FirebaseAuthentication.signInWithGoogle()
+//         .then(result => console.log(result.user?.uid))
+//         .catch(err => console.error(err));
+//     } else {
+//       console.log(change.user.displayName);
+//     }
+//   });
+// });
 
 const config = {
   type: Phaser.CANVAS,
-  width: 800,
-  height: 600,
-  orientation: Phaser.Scale.LANDSCAPE,
+  orientation: Phaser.Scale.PORTRAIT,
+  width: 1080,
+  height: 1920,
   autoRound: true,
   autoFocus: true,
   scale: {
+    parent: 'root',
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    mode: Phaser.Scale.RESIZE,
+    mode: Phaser.Scale.RESIZE
   },
   scene: Example,
   physics: {

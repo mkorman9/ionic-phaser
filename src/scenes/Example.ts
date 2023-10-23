@@ -2,13 +2,13 @@ import Phaser from 'phaser';
 
 export class Example extends Phaser.Scene {
   preload() {
-    this.load.image('sky', '/assets/space3.png');
+    this.load.image('starfield', '/assets/starfield.jpg');
     this.load.image('logo', '/assets/phaser3-logo.png');
     this.load.image('red', '/assets/red.png');
   }
 
   create() {
-    this.add.image(400, 300, 'sky');
+    this.add.tileSprite(0, 0, 1080, 1920, 'starfield');
 
     const particles = this.add.particles(0, 0, 'red', {
       speed: 100,
@@ -16,8 +16,8 @@ export class Example extends Phaser.Scene {
       blendMode: 'ADD'
     });
 
-    const logo = this.physics.add.image(400, 100, 'logo');
-
+    const logo = this.physics.add.image(100, 100, 'logo');
+    logo.setScale(0.5, 0.5);
     logo.setVelocity(100, 200);
     logo.setBounce(1, 1);
     logo.setCollideWorldBounds(true);
